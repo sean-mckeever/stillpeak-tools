@@ -19,24 +19,4 @@ tools:
       - Analytics Engineer
       - Data Engineer
     stillpeak_endorsed: true
-    stillpeak_free_alternative: stillplan
-
-  - id: stillplan
-    name: StillPlan
-    developer: Stillpeak
-    category: planning
-    type: slash-command
-    description: >
-      Lightweight planning command that structures a project or feature plan
-      into discrete, reviewable steps before any code is written. Forever free.
-    pricing: free
-    install: 'curl -fsSL https://raw.githubusercontent.com/sean-mckeever/stillpeak-tools/main/tools/planning/stillplan/install.sh | bash'
-    repo: https://github.com/sean-mckeever/stillpeak-tools
-    docs: null
-    roles:
-      - Analytics Engineer
-      - Analytics Manager
-      - Data Engineer
-      - Data Analyst
-    stillpeak_endorsed: true
     stillpeak_free_alternative: null
