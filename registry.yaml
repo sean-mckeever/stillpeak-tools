@@ -15,6 +15,7 @@ tools:
     install: '/bin/sh -c "$(curl -fsSL https://downloads.contextbridge.ai/cli/install.sh)"'
     repo: https://github.com/contextbridge/planbridge
     docs: https://plan.contextbridge.ai
+    demo: null
     roles:
       - Analytics Engineer
       - Data Engineer
@@ -36,6 +37,7 @@ tools:
     install: 'curl -fsSL https://raw.githubusercontent.com/sean-mckeever/stillpeak-tools/main/tools/documenting/ae-doc/install.sh | bash'
     repo: https://github.com/sean-mckeever/stillpeak-tools
     docs: null
+    demo: https://github.com/sean-mckeever/stillpeak-demo/tree/main/iba-dbt
     roles:
       - Analytics Engineer
       - Data Engineer
