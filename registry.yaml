@@ -1,0 +1,42 @@
+tools:
+
+  # ── Planning ──────────────────────────────────────────────────────────────
+
+  - id: planbridge
+    name: PlanBridge
+    developer: ContextBridge
+    category: planning
+    type: cli
+    description: >
+      Intercepts your AI coding agent's plan so you can annotate any line and
+      leave precise feedback before the agent writes a single line of code.
+      Runs entirely locally — no backend, no account required.
+    pricing: freemium
+    install: '/bin/sh -c "$(curl -fsSL https://downloads.contextbridge.ai/cli/install.sh)"'
+    repo: https://github.com/contextbridge/planbridge
+    docs: https://plan.contextbridge.ai
+    roles:
+      - Analytics Engineer
+      - Data Engineer
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: stillplan
+
+  - id: stillplan
+    name: StillPlan
+    developer: Stillpeak
+    category: planning
+    type: slash-command
+    description: >
+      Lightweight planning command that structures a project or feature plan
+      into discrete, reviewable steps before any code is written. Forever free.
+    pricing: free
+    install: 'curl -fsSL https://raw.githubusercontent.com/sean-mckeever/stillpeak-tools/main/tools/planning/stillplan/install.sh | bash'
+    repo: https://github.com/sean-mckeever/stillpeak-tools
+    docs: null
+    roles:
+      - Analytics Engineer
+      - Analytics Manager
+      - Data Engineer
+      - Data Analyst
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: null
