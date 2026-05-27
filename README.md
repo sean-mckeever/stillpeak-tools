@@ -6,7 +6,7 @@ Every process node has at least one forever-free option. First-party Stillpeak t
 
 ## Registry
 
-All tools (first-party and third-party) are catalogued in [`registry.yaml`](registry.yaml). The Stillpeak website reads this file to power the tools marketplace pages.
+All tools (first-party and third-party) are catalogued in [`registry.yaml`](registry.yaml). The Stillpeak website reads this file to power the tools marketplace at [stillpeak.ai/tools](https://stillpeak.ai/tools).
 
 ### Schema
 
@@ -15,7 +15,7 @@ All tools (first-party and third-party) are catalogued in [`registry.yaml`](regi
 | `id` | Unique kebab-case identifier |
 | `name` | Display name |
 | `developer` | Company or individual |
-| `category` | Process node: `planning`, `reviewing`, `prioritizing`, `analyzing`, `documenting`, etc. |
+| `category` | Process node: `planning`, `reviewing`, `prioritizing`, `analyzing`, `documenting`, `testing`, `onboarding` |
 | `type` | Tool format: `cli`, `mcp`, `slash-command` |
 | `description` | What it does and why it exists |
 | `pricing` | `free`, `freemium`, or `paid` |
@@ -24,14 +24,22 @@ All tools (first-party and third-party) are catalogued in [`registry.yaml`](regi
 | `docs` | Documentation URL (if separate from repo) |
 | `roles` | Roles this tool is relevant to |
 | `stillpeak_endorsed` | Whether Stillpeak recommends this tool |
-| `stillpeak_free_alternative` | ID of the free Stillpeak alternative (if any) |
+| `stillpeak_free_alternative` | ID of the free Stillpeak alternative, if one exists |
+
+## Updating the website
+
+After editing `registry.yaml`, run the following in the stillpeak website repo to regenerate `src/data/registry.ts`:
+
+```sh
+~/.bun/bin/bun scripts/sync-registry.ts
+```
+
+Then commit and deploy the website.
 
 ## First-party tools
 
-| Tool | Category | Type | Install |
-|---|---|---|---|
-| [StillPlan](tools/planning/stillplan/) | Planning | Slash command | See tool README |
+None published yet — coming soon.
 
 ## Adding a tool to the registry
 
-Edit `registry.yaml` and open a PR (or push directly if you're Sean).
+Edit `registry.yaml` directly and push.
