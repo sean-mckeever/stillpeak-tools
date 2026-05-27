@@ -20,3 +20,24 @@ tools:
       - Data Engineer
     stillpeak_endorsed: true
     stillpeak_free_alternative: null
+
+  # ── Documenting ───────────────────────────────────────────────────────────
+
+  - id: ae-doc
+    name: ae-doc
+    developer: Stillpeak
+    category: documenting
+    type: slash-command
+    description: >
+      Generates a complete dbt schema.yml entry for any model — description,
+      column docs, and tests — by reading the SQL and its upstream sources.
+      One command replaces an hour of manual YAML writing. Forever free.
+    pricing: free
+    install: 'curl -fsSL https://raw.githubusercontent.com/sean-mckeever/stillpeak-tools/main/tools/documenting/ae-doc/install.sh | bash'
+    repo: https://github.com/sean-mckeever/stillpeak-tools
+    docs: null
+    roles:
+      - Analytics Engineer
+      - Data Engineer
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: null
