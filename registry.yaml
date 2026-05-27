@@ -41,3 +41,44 @@ tools:
       - Data Engineer
     stillpeak_endorsed: true
     stillpeak_free_alternative: null
+    prerequisites:
+      - Claude Code installed and running
+      - A dbt project with at least one .sql model file
+      - A sources.yml in the same directory as your model (ae-doc reads it for context)
+    usage_steps:
+      - label: Install once
+        detail: Run the install command above in your terminal. It drops ae-doc into ~/.claude/commands/ — no config needed.
+      - label: Open Claude Code in your dbt project
+        detail: "Navigate to your dbt project root in the terminal, then launch Claude Code: claude"
+      - label: Run the command on any model
+        detail: "/ae-doc models/staging/stg_players.sql — replace the path with whichever model you want documented."
+      - label: Review and paste
+        detail: Claude outputs a ready-to-use schema.yml block. Review it, adjust any descriptions that need your specific business context, then paste it into your project's schema.yml.
+    example_output: |
+      version: 2
+
+      models:
+        - name: stg_players
+          description: >
+            Staging model for active player records sourced from the raw players
+            table. Filters to is_active = true and renames name to player_name
+            for consistency across the project. One row per player.
+          columns:
+            - name: player_id
+              description: Unique identifier for the player. Primary key.
+              tests:
+                - unique
+                - not_null
+            - name: team_id
+              description: Foreign key to the teams source table.
+              tests:
+                - not_null
+                - relationships:
+                    to: source('iba_raw', 'teams')
+                    field: team_id
+            - name: role
+              description: Player's roster role — starter, rotation, or bench.
+              tests:
+                - not_null
+                - accepted_values:
+                    values: ['starter', 'rotation', 'bench']
