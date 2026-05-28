@@ -152,6 +152,41 @@ tools:
       - label: Pair with dbt MCP Server
         detail: One skill is literally called configuring-dbt-mcp-server — install both and the agent can wire up its own MCP connection.
 
+  # ── Learning ──────────────────────────────────────────────────────────────
+
+  - id: ae-coach
+    name: ae-coach
+    developer: Stillpeak
+    category: learning
+    type: cli
+    description: >
+      Adds deliberate learning friction to your dbt workflow. Fires lightweight
+      challenges before dbt runs — predict the output, answer a schema question,
+      sketch the join logic — then tracks your accuracy over time. Entirely
+      local, no account required. Forever free.
+    pricing: free
+    install: 'curl -fsSL https://raw.githubusercontent.com/sean-mckeever/stillpeak-tools/main/tools/learning/ae-coach/install.sh | bash'
+    repo: https://github.com/sean-mckeever/stillpeak-tools
+    docs: null
+    demo: null
+    roles:
+      - Analytics Engineer
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: null
+    prerequisites:
+      - Claude Code installed and running
+      - bun installed (https://bun.sh)
+      - A dbt project you actively work in
+    usage_steps:
+      - label: Install
+        detail: Run the install command above. It clones ae-coach, links the binary, and drops you into a one-question setup — just your name.
+      - label: Work normally
+        detail: Challenges fire automatically before dbt run and dbt build commands. You'll see a question in your Claude Code conversation before the command runs.
+      - label: Answer or skip
+        detail: Answer in the conversation. Claude evaluates it and logs the result. Type "skip" to pass — skips are tracked too.
+      - label: Check your progress
+        detail: Run `ae-coach stats` any time to see your accuracy by challenge type and recent history.
+
   - id: altimate-data-skills
     name: Altimate Data Engineering Skills
     developer: Altimate AI

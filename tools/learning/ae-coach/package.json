@@ -1,0 +1,15 @@
+{
+  "name": "@stillpeak/ae-coach",
+  "version": "0.1.0",
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.4.5"
+  },
+  "bin": {
+    "ae-coach": "./bin/ae-coach"
+  },
+  "description": "Learning friction for AE teams — powered by ae-hub",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
