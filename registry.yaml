@@ -84,3 +84,103 @@ tools:
                 - not_null
                 - accepted_values:
                     values: ['starter', 'rotation', 'bench']
+
+  # ── AI Setup ──────────────────────────────────────────────────────────────
+
+  - id: dbt-mcp-server
+    name: dbt MCP Server
+    developer: dbt Labs
+    category: ai-setup
+    type: mcp
+    description: >
+      Gives Claude Code or Cursor a live connection to your dbt project —
+      lineage, model health, YAML generation, and 40+ dbt CLI tools inside the
+      agent's context window. No dbt Cloud account required.
+    pricing: free
+    install: 'uvx dbt-mcp'
+    repo: https://github.com/dbt-labs/dbt-mcp
+    docs: https://docs.getdbt.com/docs/dbt-ai/about-mcp
+    demo: null
+    roles:
+      - Analytics Engineer
+      - Data Engineer
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: null
+    prerequisites:
+      - uv installed (pip install uv)
+      - A dbt project with a valid dbt_project.yml
+      - Claude Code, Claude Desktop, or Cursor
+    usage_steps:
+      - label: Install
+        detail: Run uvx dbt-mcp to verify it works. For a permanent install, run pip install dbt-mcp instead.
+      - label: Add .mcp.json to your dbt project root
+        detail: Create a .mcp.json file pointing to your dbt project directory and dbt executable. This tells Claude Code to connect to the server whenever you open the project.
+      - label: Open Claude Code in your dbt project
+        detail: Once the config is in place, Claude has access to 40+ tools — full DAG traversal, model health checks, YAML generation, and live dbt CLI commands.
+      - label: Try this exact prompt
+        detail: "\"My fct_revenue model failed last night. Trace its full upstream lineage, show me the last test result for each model in the chain, and tell me which one is most likely the source of the issue.\""
+
+  - id: dbt-agent-skills
+    name: dbt Agent Skills
+    developer: dbt Labs
+    category: ai-setup
+    type: slash-command
+    description: >
+      Official dbt Labs skills for Claude Code — teaches your agent how to
+      approach dbt work, not just what commands to run. Covers model building,
+      unit testing, semantic layer setup, debugging, and dbt Mesh governance.
+    pricing: free
+    install: '/plugin marketplace add dbt-labs/dbt-agent-skills'
+    repo: https://github.com/dbt-labs/dbt-agent-skills
+    docs: https://docs.getdbt.com/blog/dbt-agent-skills
+    demo: null
+    roles:
+      - Analytics Engineer
+      - Data Engineer
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: null
+    prerequisites:
+      - Claude Code installed and running
+      - A dbt project open in your terminal
+    usage_steps:
+      - label: Install
+        detail: Run the install command above in Claude Code, then run /plugin install dbt@dbt-agent-marketplace to activate the core skill set.
+      - label: Open Claude Code in your dbt project
+        detail: Navigate to your dbt project root in the terminal, then launch Claude Code.
+      - label: Try this exact prompt
+        detail: "\"Build me a new staging model for the raw_subscriptions table. Follow our existing staging conventions, include appropriate tests, and show me the output before calling it done.\""
+      - label: Pair with dbt MCP Server
+        detail: One skill is literally called configuring-dbt-mcp-server — install both and the agent can wire up its own MCP connection.
+
+  - id: altimate-data-skills
+    name: Altimate Data Engineering Skills
+    developer: Altimate AI
+    category: ai-setup
+    type: slash-command
+    description: >
+      Claude Code skills from the dbt Power User team, benchmarked on real dbt
+      tasks. Covers model creation, debugging, testing, refactoring, incremental
+      models, and Snowflake query optimization.
+    pricing: free
+    install: '/plugin marketplace add AltimateAI/data-engineering-skills'
+    repo: https://github.com/AltimateAI/data-engineering-skills
+    docs: null
+    demo: null
+    roles:
+      - Analytics Engineer
+      - Data Engineer
+    stillpeak_endorsed: true
+    stillpeak_free_alternative: null
+    prerequisites:
+      - Claude Code installed and running
+      - A dbt project open in your terminal
+      - Snowflake credentials configured (for the Snowflake optimization skills)
+    usage_steps:
+      - label: Install dbt skills
+        detail: Run the install command above, then /plugin install dbt-skills@data-engineering-skills to activate model creation, debugging, testing, and refactoring skills.
+      - label: Install Snowflake skills (optional)
+        detail: "/plugin install snowflake-skills@data-engineering-skills — adds query profiling and cost optimization skills for Snowflake teams."
+      - label: Try this exact prompt (Snowflake teams)
+        detail: "\"Find my 5 most expensive queries from the last 7 days, and for the costliest one, walk me through the specific optimizations you'd make.\""
+      - label: Try this exact prompt (dbt model work)
+        detail: "\"Refactor fct_orders to use an incremental strategy. Preserve the existing business logic and show me the before and after.\""
